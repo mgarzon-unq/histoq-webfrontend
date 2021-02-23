@@ -1,0 +1,33 @@
+<div class="column-container">      
+    <ngx-dropzone class="drop" #drop
+        [accept]="'image/*'"
+        (change)="onSelectFiles($event)">
+        <ngx-dropzone-label>{{'ImageFileUploader.DropMessage' | translate}}</ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" 
+            *ngFor="let file of selectedFiles" 
+            [file]="file"
+            [removable]="true"
+            (removed)="onRemoveFile($event)">
+            <ngx-dropzone-label>{{ file.name }} ({{ file.type }})</ngx-dropzone-label>
+        </ngx-dropzone-image-preview>
+    </ngx-dropzone>
+    <div class="row-container">
+        <button mat-fab 
+                color="accent"
+                [disabled]="!(selectedFiles.size>0)"
+                (click)="onUploadFiles()"
+                matTooltip="{{'ImageFileUploader.UploadButtonTooltip' | translate}}">
+            <mat-icon>backup</mat-icon>
+        </button>
+        <div class="column-container"> 
+            <div class="row-container">
+                <label>{{'ImageFileUploader.CurrentFileProgressLabel' | translate}}</label>
+                <mat-progress-bar [mode]="progressBarsMode()" [value]="currentFileProgressValue"></mat-progress-bar>    
+            </div>
+            <div class="row-container">
+                <label>{{'ImageFileUploader.TotalFilesProgressLabel' | translate}}</label>
+                <mat-progress-bar [mode]="progressBarsMode()" [value]="totalProgressValue"></mat-progress-bar>
+            </div>
+        </div>
+    </div>    
+</div>

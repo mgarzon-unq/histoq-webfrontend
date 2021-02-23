@@ -1,0 +1,94 @@
+<div mat-dialog-title class="flex-container">
+    <h2>{{'RegistrationRequestDialog.Title' | translate }}</h2>
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon">close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="mat-typography">
+    <div class="column-container">
+
+        <!-- First Name -->
+        <mat-form-field>
+            <mat-label>{{ 'UserData.FirstNameLabel' | translate }}</mat-label>
+            <input matInput 
+                    [formControl]="firstNameFormControl"                     
+                    [errorStateMatcher]="matcher"
+                    cdkFocusInitial>
+            <button mat-button *ngIf="firstNameFormControl.value" matSuffix mat-icon-button (click)="firstNameFormControl.setValue(null)">
+                <mat-icon>close</mat-icon>
+            </button>
+            <mat-error *ngIf="firstNameFormControl.hasError('required')">
+                {{ 'UserData.FirstNameRequiredMessage' | translate }}
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <!-- Last Name -->
+        <mat-form-field>
+            <mat-label>{{ 'UserData.LastNameLabel' | translate }}</mat-label>
+            <input matInput 
+                    [formControl]="lastNameFormControl"                     
+                    [errorStateMatcher]="matcher">
+            <button mat-button *ngIf="lastNameFormControl.value" matSuffix mat-icon-button (click)="lastNameFormControl.setValue(null)">
+                <mat-icon>close</mat-icon>
+            </button>
+            <mat-error *ngIf="lastNameFormControl.hasError('required')">
+                {{ 'UserData.LastNameRequiredMessage' | translate }}
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+        
+        <!-- Email -->
+        <mat-form-field>
+            <mat-label>{{ 'UserData.EmailLabel' | translate }}</mat-label>
+            <input type="email" matInput 
+                    [formControl]="emailFormControl"                     
+                    [errorStateMatcher]="matcher"
+                    placeholder="{{'UserData.EmailPlaceholder' | translate}}">
+            <button mat-button *ngIf="emailFormControl.value" matSuffix mat-icon-button (click)="emailFormControl.setValue(null)">
+                <mat-icon>close</mat-icon>
+            </button>
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                {{ 'UserData.EmailInvalidMessage' | translate }}
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                {{ 'UserData.EmailRequiredMessage' | translate }}
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <!-- Message -->
+        <mat-form-field>
+            <mat-label>{{ 'RegistrationRequestDialog.OptionalMessageLabel' | translate }}</mat-label>
+            <textarea matInput [(ngModel)]="message">
+            </textarea>
+            <button mat-button *ngIf="message" matSuffix mat-icon-button (click)="message=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+    </div>
+</mat-dialog-content>
+
+<br>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button 
+            color="primary"
+            (click)="onRequestRegistration()"
+            mat-dialog-close
+            [disabled]="disableRequestRegistraion()">
+            <mat-icon>send</mat-icon>
+            {{ 'RegistrationRequestDialog.RequestButton' | translate }}
+    </button>
+    <button mat-raised-button mat-dialog-close>
+        <mat-icon>close</mat-icon>
+        {{ 'RegistrationRequestDialog.CancelButton' | translate }}
+    </button>    
+</mat-dialog-actions>
+
+

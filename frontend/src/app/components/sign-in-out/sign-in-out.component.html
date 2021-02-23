@@ -1,0 +1,19 @@
+<div class="sign-int-out-container">
+
+  <button mat-icon-button
+          [matMenuTriggerFor]="userMenu"
+          *ngIf="isUserLoggedIn()" 
+          matTooltip="{{getUserName()}}">
+      <img class="avatar" src="{{getUserAvatar()}}">
+  </button>    
+
+</div>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item (click)="signOut()">
+    <mat-icon>cancel</mat-icon>
+    <span>{{'SignInOut.SignOut' | translate}}</span>
+  </button>
+</mat-menu>
+
+

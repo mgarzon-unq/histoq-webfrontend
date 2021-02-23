@@ -1,0 +1,51 @@
+<table mat-table [dataSource]="imageFiles" class="mat-elevation-z8" matSort>    
+    <!-- Id -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageFilesList.IdColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageFilesList.NameColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Created by stitching process ? -->
+    <ng-container matColumnDef="isStitched">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageFilesList.IsStitchedColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{getIsStitched(element)}} </td>
+    </ng-container>
+
+    <!-- Menu column -->
+    <ng-container matColumnDef="actionsMenu">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button
+                (click)="onActionsMenuButonClick($event,element)"
+                [matMenuTriggerFor]="actionsMenu"
+                matTooltip="{{'Common.ActionsMenuTooltip' | translate}}">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        class="image-file-element-row"
+        (click)="onImageFileSelect(row)"
+        [ngClass]="{hovered: row.hovered}"
+        (mouseover)="row.hovered = true" (mouseout)="row.hovered = false">
+    </tr>
+  </table>
+
+  <mat-paginator  [pageSizeOptions]="[5, 10, 20]" 
+                  showFirstLastButtons>
+  </mat-paginator>
+
+  <mat-menu #actionsMenu="matMenu">
+    <button mat-menu-item (click)="onDeleteImageFile()">
+      <mat-icon>delete</mat-icon>
+      <span>{{'ImageFilesList.DeleteImageFile' | translate}}</span>
+    </button>
+  </mat-menu>

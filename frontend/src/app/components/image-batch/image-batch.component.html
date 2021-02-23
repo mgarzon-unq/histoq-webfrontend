@@ -1,0 +1,225 @@
+<div mat-dialog-title class="flex-container">
+    <h2>{{getImageBatchTitle()}}</h2>
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon">close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="mat-typography">
+
+      <mat-horizontal-stepper #stepper>
+
+        <!-- General settings step -->
+        <mat-step label="{{ 'ImageBatch.GeneralParametersStepTitle' | translate }}" state="settings" >
+
+          <div class="navigate-button-container">
+            <button mat-mini-fab 
+              color="primary"
+              matStepperNext
+              [hidden]="!isExistingImageBatch()"
+              matTooltip="{{'Common.Next' | translate}}">
+              <mat-icon>navigate_next</mat-icon>
+            </button>
+          </div>
+
+          <mat-card class="mat-elevation-z8">            
+
+            <div class="column-container">
+        
+                <!-- Protocol search -->
+                <mat-form-field appearance="fill">
+                  <mat-icon *ngIf="!isExistingImageBatch()" matPrefix>search</mat-icon>
+                  <mat-label>{{ 'ImageBatch.ProtocolLabel' | translate }}</mat-label>
+                  <input  *ngIf="isExistingImageBatch()"
+                          type="text" 
+                          matInput 
+                          [value]="formatProtocolSelect(selectedProtocol)"
+                          [readonly]="true">
+                  <input  *ngIf="!isExistingImageBatch()"
+                          type="text" 
+                          matInput 
+                          [(ngModel)]="protocolSearchKey" 
+                          (ngModelChange)="onProtocolSearchTextChanged()"
+                          [matAutocomplete]="protocolAutocomplete"
+                          (focus)="$event.target.select()"
+                          cdkFocusInitial>
+                  <mat-autocomplete #protocolAutocomplete="matAutocomplete"
+                                    autoActiveFirstOption 
+                                    [displayWith]="formatProtocolSelect"
+                                    (optionSelected)="onProtocolSelect($event.option.value)">
+                    <mat-option *ngFor="let protocol of protocols" [value]="protocol">
+                      {{formatProtocolSelect(protocol)}}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <button *ngIf="protocolSearchKey && !isExistingImageBatch()" mat-icon-button matSuffix (click)="onClearProtocolSearchKey()">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+
+
+                <div class="row-container">
+                  <!-- Experimental group selector -->
+                  <mat-form-field appearance="fill" class="groupSelect">
+                    <mat-label>{{ 'ImageBatch.ExperimentalGroupLabel' | translate }}</mat-label>
+                    <input  *ngIf="isExistingImageBatch()"
+                            type="text" 
+                            matInput 
+                            [value]="formatExperimentalGroupSelect(selectedExperimentalGroup)"
+                            [readonly]="true">
+                    <mat-select *ngIf="!isExistingImageBatch()"
+                                [(ngModel)]="selectedExperimentalGroup" 
+                                name="groupSelect" 
+                                (selectionChange)="onExperimentalGroupSelect($event)"
+                                [readonly]="isExistingImageBatch()">
+                      <mat-option *ngFor="let group of experimentalGroups" [value]="group">
+                        {{formatExperimentalGroupSelect(group)}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+          
+                  <!-- Individual selector -->
+                  <mat-form-field appearance="fill" class="individualSelect" >
+                    <mat-label>{{ 'ImageBatch.IndividualLabel' | translate }}</mat-label>
+                    <input  *ngIf="isExistingImageBatch()"
+                            type="text" 
+                            matInput 
+                            [value]="formatIndividualSelect(selectedIndividual)"
+                            [readonly]="true">
+                    <mat-select *ngIf="!isExistingImageBatch()"
+                                [(ngModel)]="selectedIndividual" 
+                                name="individualSelect" 
+                                (selectionChange)="onIndividualSelect($event)"
+                                [readonly]="isExistingImageBatch()">
+                      <mat-option *ngFor="let individual of individuals" [value]="individual">
+                        {{formatIndividualSelect(individual)}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+
+                <!-- Stitching function container -->
+                <div class="row-container">
+                  <!-- Stitching function checkbox -->
+                  <mat-slide-toggle [(ngModel)]="this.getImageBatch().applyStitching" 
+                          name="applyStitchingCheckBox"
+                          [disabled]="isExistingImageBatch()">
+                          {{ 'ImageBatch.ApplyStitchingLabel' | translate }}
+                  </mat-slide-toggle>
+                </div>
+
+            </div>
+
+          </mat-card>
+
+          <mat-card *ngIf="!isExistingImageBatch()" class="mat-elevation-z8">
+            <button mat-raised-button 
+              (click)="onCreateImageBatch()" 
+              color="accent"
+              [disabled]="!selectedIndividual">
+              <mat-icon>add_circle</mat-icon>
+              {{ 'ImageBatch.CreateNewBatchButton' | translate }}
+            </button>
+          </mat-card>
+
+      </mat-step>
+
+
+      <div *ngIf="isExistingImageBatch()">
+
+        <!-- Upload files step  -->
+        <mat-step label="{{ 'ImageBatch.FilesStepTitle' | translate }}" state="upload" >
+
+          <div class="navigate-button-container">
+            <button mat-mini-fab
+              color="primary"
+              matStepperPrevious
+              matTooltip="{{'Common.Previous' | translate}}">
+              <mat-icon>navigate_before</mat-icon>
+            </button>
+
+            <button mat-mini-fab 
+              color="primary"
+              matStepperNext
+              matTooltip="{{'Common.Next' | translate}}">
+              <mat-icon>navigate_next</mat-icon>
+            </button>
+          </div>
+
+          <mat-card class="mat-elevation-z8">
+            <app-image-files-uploader 
+              [imageBatchId]="getImageBatch().id"
+              (filesUploaded)="imageFilesList.loadImageFiles()">
+            </app-image-files-uploader>
+          </mat-card>
+
+          <mat-card class="mat-elevation-z8">
+            <app-image-files-list 
+              [imageBatchId]="getImageBatch().id"
+              (imageFilesListChanged)="imageList.onImageFilesListChanged(imageFilesList.getImageFilesCount())"
+              #imageFilesList>
+            </app-image-files-list>
+          </mat-card>
+      
+        </mat-step>
+
+
+        <!-- Image results step -->
+        <mat-step label="{{ 'ImageBatch.ImagesStepTitle' | translate }}" state="results"  >
+
+          <div class="navigate-button-container">
+            <button mat-mini-fab
+              color="primary"
+              matStepperPrevious
+              matTooltip="{{'Common.Previous' | translate}}">
+              <mat-icon>navigate_before</mat-icon>
+            </button>
+          </div>
+
+          <mat-card class="mat-elevation-z8">
+            <app-images-list
+              [imageBatchId]="getImageBatch().id"
+              (processFinished)="imageFilesList.loadImageFiles()"
+              #imageList>
+            </app-images-list>
+          </mat-card>
+
+        </mat-step>
+
+
+      </div>
+
+
+
+
+      <!--Customize steps icons -->
+
+      <ng-template matStepperIcon="settings">
+        <mat-icon>settings</mat-icon>            
+      </ng-template>
+
+      <ng-template matStepperIcon="upload">
+        <mat-icon>backup</mat-icon>          
+      </ng-template>
+
+      <ng-template matStepperIcon="results">
+        <mat-icon>center_focus_strong</mat-icon>          
+      </ng-template>
+
+      <ng-template matStepperIcon="edit" let-index="index">
+        <mat-icon *ngIf="index == 0">settings</mat-icon>
+        <mat-icon *ngIf="index == 1">backup</mat-icon>
+        <mat-icon *ngIf="index == 2">center_focus_strong</mat-icon>
+      </ng-template>
+
+      <ng-template matStepperIcon="done" let-index="index">
+        <mat-icon *ngIf="index == 0">settings</mat-icon>
+        <mat-icon *ngIf="index == 1">backup</mat-icon>
+        <mat-icon *ngIf="index == 2">center_focus_strong</mat-icon>
+      </ng-template>
+
+    </mat-horizontal-stepper>
+
+     
+
+</mat-dialog-content>

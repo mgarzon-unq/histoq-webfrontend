@@ -1,0 +1,24 @@
+<div class="toolbar-container">
+
+  
+
+  <!-- Toolbar -->
+  <mat-toolbar class="main-toolbar mat-elevation-z8">  
+    <img src="/assets/images/logo-transparent.png" width="72" height="54">
+    <span>&nbsp;</span>
+    <span>{{'MainMenu.ProductName' | translate}}</span>
+    <span class="toolbar-spacer"></span>
+    <span><app-language-selector></app-language-selector></span>
+    <span *ngIf="isLoggedBussinessUserAdmin()"><app-users-management-button></app-users-management-button></span>    
+    <span>&nbsp;</span>
+    <span><app-sign-in-out></app-sign-in-out></span>
+  </mat-toolbar>
+
+
+</div>
+
+
+<router-outlet></router-outlet>
+
+
+

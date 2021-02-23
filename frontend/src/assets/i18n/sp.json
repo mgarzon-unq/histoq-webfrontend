@@ -1,0 +1,231 @@
+{
+    "MainMenu": {
+        "ProductName": "HistoQ"
+    },    
+    
+    "ImageBatchesList": {
+        "Title": "Mis Lotes de Imágenes",
+        "AdministratorTitle": "Lotes de Imágenes",
+        "AddNewImageBatchButon": "Nuevo lote",
+        "ExportData": "Exportar",
+        "IdColumn": "Id",
+        "DateTimeColumn": "Fecha/Hora",
+        "UserColumn": "Usuario",
+        "IndividualColumn": "Protocolo-Grupo-Individuo",
+        "FileCountColumn": "Archivos",
+        "StatusColumn": "Estado",
+        "ProtocolUnknownDescription": "Desconocido",
+        "DeleteImageBatch": "Eliminar",
+        "DeleteImageBatchUserOptionDialogTitle": "Desea eliminar el lote de imagenes?",
+        "DeleteImageBatchUserOptionDialogMessage": "",
+        "DeleteImageBatchSuccess": "Se ha eliminado el lote de imagenes!"
+    },
+
+    "ImageBatch": {
+        "NewBatchTitle": "Nuevo Lote de Imágenes",
+        "ExistingBatchTitleFormat": "Lote de Imágenes #{{id}} - {{date}}",
+        "GeneralParametersStepTitle": "Parámetros Generales...",
+        "FilesStepTitle": "Archivos del Lote...",
+        "ImagesStepTitle": "Imágenes Procesadas...",
+        "ProtocolLabel": "Protocolo",
+        "ExperimentalGroupLabel": "Grupo Experimental",
+        "ExperimentalGroupFormat": "Grupo {{label}}",
+        "IndividualLabel": "Individuo",
+        "IndividualFormat": "Individuo #{{label}}",
+        "ApplyStitchingLabel": "Aplicar Stitching",
+        "StitchingRowsLabel": "Filas",
+        "StitchingColumnsLabel": "Columnas",
+        "CreateNewBatchButton": "Crear Nuevo Lote"
+    },
+
+    "ImageFileUploader": {
+        "DropMessage": "Clic para seleccionar archivos, o arrastrar y soltar en esta zona...",
+        "CurrentFileProgressLabel": "Actual",
+        "TotalFilesProgressLabel": "Total",
+        "NotificationFileIsnotImageType": "El archivo '{{fileName}}' no es del tipo imagen.",
+        "NotificationUploadSuccess": "Archivo '{{fileName}}' subido correctamente!",
+        "NotificationUploadError": "Error subiendo archivo '{{fileName}}': {{errorMessage}}",
+        "UploadButtonTooltip": "Subir archivos"
+    },
+
+    "ImageFilesList": {
+        "IdColumn": "Id",
+        "NameColumn": "Nombre",
+        "IsStitchedColumn": "Creado por Stitching?",
+        "DeleteImageFile": "Eliminar",
+        "DeleteImageFileUserOptionDialogTitle": "Desea eliminar el archivo de imagen?",
+        "DeleteImageFileUserOptionDialogMessage": "",
+        "DeleteImageFileSuccess": "Archivo de imagen eliminado correctamente!"
+    },
+
+    "ImageList": {        
+        "ProcessBatchButton": "Procesar lote..",
+        "ReProcessBatchButton": "Reprocesar lote...",
+        "IdColumn": "Id",
+        "NameColumn": "Nombre",
+        "MeasurementUnitColumn": "Unidades",
+        "MeasurementFactorColumn": "Coeficiente Conversion (unidad/pixel)",
+        "TotalAreaColumn": "Area Total",
+        "TotalTissueAreaColumn": "Area de Tejido",
+        "ViableTissueAreaColumn": "Area Tejido Viable",
+        "NecroticTissueAreaColumn": "Area Tejido Necrotico",
+        "NecroticTissuePercentageColumn": "% Relativo",
+        "NotificationProcessSuccess": "Lote procesado correctamente!"
+    },
+
+    "ShowImageDialog": {
+        "ImageLabel": "Imagen '{{imageName}}'",
+        "ProcessingParametersLabel": "Parametros de procesamiento...",
+        "ProcessingParameterViableTissueAreaMinHSVInRangeLabel": "Deteccion de Area de Tejido Viable - Rango HSV Minimo",
+        "ProcessingParameterViableTissueAreaMaxHSVInRangeLabel": "Deteccion de Area de Tejido Viable - Rango HSV Maximo",
+        "ProcessingParameterViableTissueAreaMinHueInRangeLabel": "Color",
+        "ProcessingParameterViableTissueAreaMinSaturationInRangeLabel": "Saturacion",
+        "ProcessingParameterViableTissueAreaMinValueInRangeLabel": "Valor",
+        "ProcessingParameterViableTissueAreaMaxHueInRangeLabel": "Color",
+        "ProcessingParameterViableTissueAreaMaxSaturationInRangeLabel": "Saturacion",
+        "ProcessingParameterViableTissueAreaMaxValueInRangeLabel": "Valor"
+    },
+
+    "Common": {
+        "Yes": "Si",
+        "No": "No",
+        "Enabled": "Habilitado",
+        "Disabled": "Deshabilitado",
+        "ActionsMenuTooltip": "Mas...",
+        "ItemSelectTooltip": "Seleccionar",
+        "SelectLanguage": "Idioma",
+        "Next": "Siguiente",
+        "Previous": "Anterior",
+        "DateTimeFormatTemplate": "dd/MM/yyyy HH:mm",
+        "DateTimeFormatLocale": "en-US"
+    },
+
+    "Notifications": {
+        "DataUpdateSuccess": "Informacion actualizada!"
+    },
+
+    "ImageService": {
+        "CreateImageBatch-Error": "Error creando el lote de imagenes.",
+        "ProcessImageBatch-Error": "Error procesando el lote de imagenes.",
+        "UploadImageFile-Error": "Error subiendo el archivo de imagen '{{fileName}}'.",
+        "FindAllImageBatches-Error": "Error consultando los lotes de imagenes.",
+        "DeleteImageBatch-Error": "Error eliminando el lote de imagenes.",
+        "FindImageBatchById-Error": "Error consultando el lote de imagenes '{{batchId}}'.",
+        "FindAllImageFilesByImageBatchId-Error": "Error consultando los archivos del lote de imagenes '{{batchId}}'.",
+        "FindAllImagesByImageBatchId-Error": "Error consultando las imagenes procesadas del lote de imagenes '{{batchId}}'.",
+        "FindImageBatchesExportableData-Error": "Error consultando datos a exportar de lotes de imagenes.",
+        "FindAllExportableDataFileFormats": "Error consultando los tipos de formato de archivo de exportacion soportados.",
+        "DeleteImageFile-Error": "Error eliminando el archivo de imagen.",
+        "UpdateImageFile-Error": "Error actualizando el archivo de imagen.",
+        "FindAllDefaultProcessingParameters-Error": "Error consultando los parametros de procesamiento por defecto."
+    },
+
+    "UserService": {
+        "FindUserBySocialId-Error": "Error autorizando al usuario '{{socialId}}'.",
+        "CreateRegistrationRequest-Error": "Error solicitando registracion de '{{socialId}}'.",
+        "AcceptRegistrationRequest-Error": "Error aceptando solicitud de registracion de '{{socialId}}'.",
+        "RejectRegistrationRequest-Error": "Error rechazando solicitud registracion de '{{socialId}}'.",
+        "FindPendingRegistrationRequests-Error": "Error consultando las solicitudes de registracion pendientes.",
+        "FindAllUsers-Error": "Error consultando los usuarios registrados del sistema.",
+        "CreateUser-Error": "Error creando usuario.",
+        "ChangeUser-Error": "Error modificando usuario."
+    },
+
+    "ProtocolService": {
+        "FindAllProtocolsLike-Error": "Error buscando todos los protocolos que contengan el texto '{{searchKey}}'."
+    },
+
+    "SignInOut": {
+        "SignInTitle": "Ingresa con tu Id social...",
+        "WatingAuthorizationServer": "Aguarda mientras nos autenticamos...",
+        "SignInWithGoogle": "Continuar con Google",
+        "SignInWithFacebook": "Continuar con Facebook",
+        "AccessRequest": "Solicitar Acceso",
+        "SignOut": "Cerrar sesión",
+        "AccessButton": "Ingresar..."
+    },
+
+    "AuthenticationService": {
+        "SignInWithGoogle-Error": "Error ingresando con Google: {{description}}",
+        "SignInWithFacebook-Error": "Error ingresando con Facebook: {{description}}",
+        "SignOut-Error": "Error cerrando sesion: {{description}}"
+    },
+
+    "PaginatorI18n": {
+        "ItemsPerPageLabel": "Items por página:",
+        "NextPageLabel": "Siguiente",
+        "PreviousPageLabel": "Anterior",
+        "FirstPageLabel": "Primera",
+        "LastPageLabel": "Última"
+    },
+
+    "ImageBatchesDataExportDialog": {
+        "Title": "Exportación de datos",
+        "FileFormatLabel": "Formato de archivo",
+        "OutputFileButton": "Ubicacion de archivo",
+        "ExportButton": "Exportar",
+        "CancelButton": "Cancelar",
+        "DataExportSuccessful": "Datos exportados correctamente!"
+    },
+
+    "UserOptionDialog": {
+        "AcceptLabel": "Aceptar",
+        "CancelLabel": "Cancelar"
+    },
+
+    "RegistrationRequestDialog" : {
+        "Title": "Solicitud de Acceso",        
+        "OptionalMessageLabel": "Mensaje opcional",
+        "RequestButton": "Enviar solicitud",
+        "CancelButton": "Cancelar",
+        "RequestSuccess": "Tu solicitud fue enviada con exito!",
+        "ReCaptchaError": "Error reCAPTCHA: {{errorMessage}}"
+    },
+
+    "UserManagement" : {
+        "Title": "Administración de Usuarios",
+        "UserListTabLabel": "Usuarios Registrados",
+        "UserRegistrationRequestListTabLabel": "Solicitudes de Acceso",
+        "AccessButtonTooltip": "Usuarios"
+    },
+
+    "UserList": {
+        "NameColumn": "Nombre",
+        "SocialIdColumn": "Email",
+        "IsAdministratorColumn": "Administrador?",
+        "StatusColumn": "Estado",
+        "EnableActionLabel": "Habilitar...",
+        "DisableActionLabel": "Deshabilitar...",
+        "AddUserButton": "Nuevo Usuario"
+    },
+
+    "UserData": {
+        "Title": "Datos del Usuario",
+        "FirstNameLabel": "Nombre",
+        "FirstNameRequiredMessage": "El nombre es obligatorio...",
+        "LastNameLabel": "Apellido",
+        "LastNameRequiredMessage": "El apellido es obligatorio...",
+        "EmailLabel": "Email",
+        "EmailInvalidMessage": "Por favor, ingresa una direccion de email válida...",
+        "EmailRequiredMessage": "El email es obligatorio...",
+        "EmailPlaceholder": "Ej, nombre@dominio",
+        "IsAdministratorLabel": "Administrador",
+        "StatusLabel": "Habilitado",
+        "ChangeUserLabel": "Modificar",
+        "CreateUserLabel": "Crear",
+        "CancelLabel": "Cancelar",
+        "UserSuccessfullyChanged": "Usuario '{{socialId}}' modificado correctamente!",
+        "UserSuccessfullyCreated": "Usuario '{{socialId}}' creado correctamente!"
+    },
+
+    "UserRegistrationRequestList": {
+        "NameColumn": "Nombre",
+        "SocialIdColumn": "Email",
+        "MessageColumn": "Mensaje",
+        "AcceptRequestLabel": "Aceptar solicitud...",
+        "RejectRequestLabel": "Rechazar solicitud...",
+        "RequestSuccessfullyAccepted": "La solicitud se ha aceptado correctamente!",
+        "RequestSuccessfullyRejected": "La solicitud se ha rechazado correctamente!"
+    }
+
+}

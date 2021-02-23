@@ -1,0 +1,124 @@
+  table {
+      width: 100%;
+      table-layout: fixed;   
+    }
+    
+    .mat-header-cell {  
+      background-color:#3f51b5;
+      color:#ffffff;
+      font-size: medium;
+    }
+
+    ::ng-deep .sort-arrow .mat-sort-header-arrow {
+      color: #ffffff !important;
+      opacity: 0;
+    }
+    
+    .mat-column-select {
+      word-wrap: break-word !important;
+      white-space: unset !important;
+      flex: 0 0 30% !important;
+      width: 5% !important;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    
+      word-break: break-word;
+    
+      -ms-hyphens: auto;
+      -moz-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+   }
+
+    .mat-column-name {
+       word-wrap: break-word !important;
+       white-space: unset !important;
+       flex: 0 0 30% !important;
+       width: 35% !important;
+       overflow-wrap: break-word;
+       word-wrap: break-word;
+     
+       word-break: break-word;
+     
+       -ms-hyphens: auto;
+       -moz-hyphens: auto;
+       -webkit-hyphens: auto;
+       hyphens: auto;
+    }
+     
+    .mat-column-socialId {
+      word-wrap: break-word !important;
+      white-space: unset !important;
+      flex: 0 0 25% !important;
+      width: 20% !important;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    
+      word-break: break-word;
+    
+      -ms-hyphens: auto;
+      -moz-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+  
+    .mat-column-message {
+      word-wrap: break-word !important;
+      white-space: unset !important;
+      flex: 0 0 25% !important;
+      width: 35% !important;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    
+      word-break: break-word;
+    
+      -ms-hyphens: auto;
+      -moz-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+  
+    .mat-column-actionsMenu {
+      word-wrap: break-word !important;
+      white-space: unset !important;
+      flex: 0 0 25% !important;
+      width: 5% !important;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    
+      word-break: break-word;
+    
+      -ms-hyphens: auto;
+      -moz-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+     
+       
+    tr.request-element-row:hover {
+      background: whitesmoke;
+    }
+    
+    tr.request-element-row:active {
+      background: #efefef;
+    }
+  
+    .mat-row.hovered {
+      background: #eee;
+      cursor: pointer;
+    }
+  
+    .mat-row.highlighted {
+      background: #999;
+    }
+  
+    button.mat-menu-item{ outline:none; }
+
+    .toolbar-spacer {
+      flex: 1 1 auto;
+    }
+    
+  .table-container {
+    height: 50%;
+    overflow: auto;
+  }

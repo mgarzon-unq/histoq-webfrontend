@@ -1,0 +1,45 @@
+.flex-container { 
+    display: flex;
+    justify-content: space-between;
+    width: 100%;    
+    font-size: x-large; 
+    font-weight: bold;
+}
+
+.close-button{
+    float: right;
+    top:-24px;
+    right:-24px;
+}
+
+
+.column-container {
+    display: flex;
+    flex-direction: column;    
+}
+  
+.column-container > * {    
+    width: 100%;
+}
+
+.column-container form {
+}
+  
+.column-container form > * {
+}
+  
+.column-container .mat-radio-button {
+    margin: 0 12px;
+}
+
+.column-container .button {
+    margin: 0 12px;
+}
+
+.row-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;    
+    align-content: center;
+}

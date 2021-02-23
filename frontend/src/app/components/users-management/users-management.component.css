@@ -1,0 +1,13 @@
+.flex-container { 
+    display: flex;
+    justify-content: space-between;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.close-button {
+    float: right;
+    top:-24px;
+    right:-24px;
+    outline:none;
+}

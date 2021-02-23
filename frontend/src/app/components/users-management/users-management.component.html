@@ -1,0 +1,30 @@
+<div mat-dialog-title class="flex-container">
+    <h2>{{'UserManagement.Title' | translate }}</h2>
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon">close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="mat-typography">
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon>people</mat-icon>
+                    {{'UserManagement.UserListTabLabel' | translate}}
+                </ng-template>            
+                <app-user-list #usersList></app-user-list>
+            </mat-tab>
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon>login</mat-icon>
+                    {{'UserManagement.UserRegistrationRequestListTabLabel' | translate}}
+                </ng-template>            
+                <app-user-registration-request-list
+                    (requestsProcessed)="usersList.loadUsers()">
+                </app-user-registration-request-list>
+            </mat-tab>
+        </mat-tab-group>
+</mat-dialog-content>
+
+

@@ -1,0 +1,11 @@
+<div class="flex-container">
+    <button mat-icon-button 
+            (click)="onUserManagement()"
+            matTooltip="{{'UserManagement.AccessButtonTooltip' | translate}}">
+        <mat-icon [matBadge]="getPendingNotifications()" 
+                  matBadgeColor="accent"
+                  [matBadgeHidden]="getPendingNotifications()<=0">
+            people
+        </mat-icon>
+    </button>
+</div>

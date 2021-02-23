@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{ data.title | translate }}</h1>
+<div mat-dialog-content>{{ data.message | translate }}</div>
+<div mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" [mat-dialog-close]="true">
+        <mat-icon>done</mat-icon>
+        {{ data.okLabel | translate }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false" cdkFocusInitial>
+        <mat-icon>close</mat-icon>
+        {{ data.cancelLabel | translate }}
+    </button>
+</div>
+

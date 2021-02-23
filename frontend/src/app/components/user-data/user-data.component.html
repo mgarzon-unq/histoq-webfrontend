@@ -1,0 +1,104 @@
+<div mat-dialog-title class="flex-container">
+    <h2>{{'UserData.Title' | translate }}</h2>
+    <button mat-icon-button class="close-button" [mat-dialog-close]="false">
+        <mat-icon class="close-icon">close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="mat-typography">
+
+    <div class="column-container">
+        
+        <div class="row-container">
+            <!-- First Name -->
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'UserData.FirstNameLabel' | translate }}</mat-label>
+                <input matInput 
+                        [formControl]="firstNameFormControl"                     
+                        [errorStateMatcher]="matcher">
+                <button mat-icon-button *ngIf="firstNameFormControl.value && data.allowChange" 
+                        matSuffix 
+                        (click)="firstNameFormControl.setValue(null)">
+                    <mat-icon>close</mat-icon>
+                </button>
+                <mat-error *ngIf="firstNameFormControl.hasError('required')">
+                    {{ 'UserData.FirstNameRequiredMessage' | translate }}
+                </mat-error>
+            </mat-form-field> 
+
+            <!-- Last Name -->
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'UserData.LastNameLabel' | translate }}</mat-label>
+                <input matInput 
+                        [formControl]="lastNameFormControl"                     
+                        [errorStateMatcher]="matcher">
+                <button mat-icon-button *ngIf="lastNameFormControl.value && data.allowChange" 
+                        matSuffix 
+                        (click)="lastNameFormControl.setValue(null)">
+                    <mat-icon>close</mat-icon>
+                </button>
+                <mat-error *ngIf="lastNameFormControl.hasError('required')">
+                    {{ 'UserData.LastNameRequiredMessage' | translate }}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- Email -->
+        <mat-form-field appearance="fill">
+            <mat-label>{{ 'UserData.EmailLabel' | translate }}</mat-label>
+            <input type="email" matInput 
+                    [formControl]="emailFormControl"                     
+                    [errorStateMatcher]="matcher"
+                    placeholder="{{'UserData.EmailPlaceholder' | translate}}">
+            <button mat-icon-button *ngIf="emailFormControl.value && data.allowChange" 
+                    matSuffix
+                    (click)="emailFormControl.setValue(null)">
+                <mat-icon>close</mat-icon>
+            </button>
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                {{ 'UserData.EmailInvalidMessage' | translate }}
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                {{ 'UserData.EmailRequiredMessage' | translate }}
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Is Administrator? -->
+        <mat-slide-toggle [(ngModel)]="data.user.admin" [disabled]="!data.allowChange">
+            {{ 'UserData.IsAdministratorLabel' | translate }}
+        </mat-slide-toggle>
+
+        <br>
+    
+        <!-- Status -->
+        <mat-slide-toggle [(ngModel)]="data.user.active" [disabled]="!data.allowChange">
+            {{ 'UserData.StatusLabel' | translate }}
+        </mat-slide-toggle>        
+
+        <br>
+ 
+    </div>
+
+</mat-dialog-content>
+
+
+<div *ngIf="data.allowChange">
+    <mat-divider></mat-divider>
+
+    <br>
+
+    <div mat-dialog-actions align="center">
+        <button mat-raised-button color="primary" 
+                (click)="onOkButton()"
+                [mat-dialog-close]="true" 
+                [disabled]="disableOkButton()">
+            <mat-icon>done</mat-icon>
+           {{ data.okButtonLabel }}
+        </button>
+        <button mat-raised-button [mat-dialog-close]="false" cdkFocusInitial>
+            <mat-icon>close</mat-icon>
+            {{ 'UserData.CancelLabel' | translate }}
+        </button>
+    </div>
+
+</div>

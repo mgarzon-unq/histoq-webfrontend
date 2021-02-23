@@ -1,0 +1,36 @@
+.close-button {
+    float: right;
+    top:-24px;
+    right:-24px;
+    outline:none;
+}
+
+.flex-container { 
+    display: flex;
+    justify-content: space-between;
+    width: 100%;    
+    font-size: larger; 
+    font-weight: bold;
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;    
+}
+  
+.column-container > * {    
+    width: 100%;
+}
+
+.column-container form {
+}
+  
+.column-container form > * {
+}
+
+.row-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;  
+}

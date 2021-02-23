@@ -1,0 +1,232 @@
+{
+    "MainMenu": {
+        "ProductName": "HistoQ"
+    },    
+    
+    "ImageBatchesList": {
+        "Title": "My Image Batches",
+        "AdministratorTitle": "Image Batches",
+        "AddNewImageBatchButon": "New batch",
+        "ExportData": "Export",
+        "IdColumn": "Id",
+        "DateTimeColumn": "Date/Time",
+        "UserColumn": "User",
+        "IndividualColumn": "Protocol-Group-Indivual",
+        "FileCountColumn": "Files",
+        "StatusColumn": "Status",
+        "ProtocolUnknownDescription": "Unknown",
+        "DeleteImageBatch": "Delete"  ,
+        "DeleteImageBatchUserOptionDialogTitle": "Delete image batch?",
+        "DeleteImageBatchUserOptionDialogMessage": "",
+        "DeleteImageBatchSuccess": "Image batch successfully deleted!"
+    },
+
+    "ImageBatch": {
+        "NewBatchTitle": "New Image Batch",
+        "ExistingBatchTitleFormat": "Image Batch #{{id}} - {{date}}",
+        "GeneralParametersStepTitle": "General Parameters...",
+        "FilesStepTitle": "Batch Files...",
+        "ImagesStepTitle": "Processed Images...",
+        "ProtocolLabel": "Protocol",
+        "ExperimentalGroupLabel": "Experimental Group",
+        "ExperimentalGroupFormat": "Group {{label}}",
+        "IndividualLabel": "Individual",
+        "IndividualFormat": "Individual #{{label}}",
+        "ApplyStitchingLabel": "Apply Stitching",
+        "StitchingRowsLabel": "Rows",
+        "StitchingColumnsLabel": "Columns",
+        "CreateNewBatchButton": "Create New Batch"
+    },
+
+    "ImageFileUploader": {
+        "DropMessage": "Clic to select files, or drag and drop to this zone...",
+        "CurrentFileProgressLabel": "Current",
+        "TotalFilesProgressLabel": "Total",
+        "NotificationFileIsnotImageType": "File '{{fileName}}' is not image type.",
+        "NotificationUploadSuccess": "File '{{fileName}}' successfully uploaded!",
+        "NotificationUploadError": "Fail to upload file '{{fileName}}': {{errorMessage}}",
+        "UploadButtonTooltip": "Upload files"
+    },
+
+    "ImageFilesList": {
+        "IdColumn": "Id",
+        "NameColumn": "Name",
+        "IsStitchedColumn": "Stitched?",
+        "DeleteImageFile": "Delete",
+        "DeleteImageFileUserOptionDialogTitle": "Delete image file?",
+        "DeleteImageFileUserOptionDialogMessage": "",
+        "DeleteImageFileSuccess": "Image file successfully deleted!"
+    },
+
+    "ImageList": {
+        "ProcessBatchButton": "Process Batch",
+        "ReProcessBatchButton": "Reprocess Batch...",
+        "IdColumn": "Id",
+        "NameColumn": "Name",
+        "MeasurementUnitColumn": "Units",
+        "MeasurementFactorColumn": "Conversion Factor (unit/pixel)",
+        "TotalAreaColumn": "Total Area",
+        "TotalTissueAreaColumn": "Tissue Area",
+        "ViableTissueAreaColumn": "Viable Tissue Area",
+        "NecroticTissueAreaColumn": "Necrotic Tissue Area",
+        "NecroticTissuePercentageColumn": "Relative %",
+        "NotificationProcessSuccess": "Batch successfully processed!"
+    },
+
+    "ShowImageDialog": {
+        "ImageLabel": "Image '{{imageName}}'",
+        "ProcessingParametersLabel": "Processing parameters...",
+        "ProcessingParameterViableTissueAreaMinHSVInRangeLabel": "Viable Tissue Area Detection - HSV Minimum Range",
+        "ProcessingParameterViableTissueAreaMaxHSVInRangeLabel": "Viable Tissue Area Detection - HSV Maximum Range",
+        "ProcessingParameterViableTissueAreaMinHueInRangeLabel": "Hue",
+        "ProcessingParameterViableTissueAreaMinSaturationInRangeLabel": "Saturation",
+        "ProcessingParameterViableTissueAreaMinValueInRangeLabel": "Value",
+        "ProcessingParameterViableTissueAreaMaxHueInRangeLabel": "Hue",
+        "ProcessingParameterViableTissueAreaMaxSaturationInRangeLabel": "Saturation",
+        "ProcessingParameterViableTissueAreaMaxValueInRangeLabel": "Value"
+    },
+
+    "Common": {
+        "Yes": "Yes",
+        "No": "No",
+        "Enabled": "Enabled",
+        "Disabled": "Disabled",
+        "ActionsMenuTooltip": "More...",
+        "ItemSelectTooltip": "Select",
+        "SelectLanguage": "Lanuage",
+        "Next": "Next",
+        "Previous": "Previous",
+        "DateTimeFormatTemplate": "MM-dd-yyyy HH:mm",
+        "DateTimeFormatLocale": "en-US"
+    },
+
+    "Notifications": {
+        "DataUpdateSuccess": "Successful data update!"
+    },
+
+    "ImageService": {
+        "CreateImageBatch-Error": "Error creating image batch.",
+        "ProcessImageBatch-Error": "Error processing image batch.",
+        "UploadImageFile-Error": "Image file '{{fileName}}' upload error.",
+        "FindAllImageBatches-Error": "Error finding image batches.",
+        "DeleteImageBatch-Error": "Error deleting image batch.",
+        "FindImageBatchById-Error": "Error finding image batch '{{batchId}}'.",
+        "FindAllImageFilesByImageBatchId-Error": "Error finding files of image batch '{{batchId}}'.",
+        "FindAllImagesByImageBatchId-Error": "Error finding processed images of image batch '{{batchId}}'.",
+        "FindImageBatchesExportableData-Error": "Error finding image batches exportable data.",
+        "FindAllExportableDataFileFormats": "Error finding supported file formats for data export.",
+        "DeleteImageFile-Error": "Error deleting image file.",
+        "UpdateImageFile-Error": "Error updating image file.",
+        "FindAllDefaultProcessingParameters-Error": "Error finding default processing parameters."
+    },
+
+    "UserService": {
+        "FindUserBySocialId-Error": "Error authorizing user '{{socialId}}'.",
+        "CreateRegistrationRequest-Error": "Error requesting access for '{{socialId}}'.",
+        "AcceptRegistrationRequest-Error": "Error accepting access request for '{{socialId}}'.",
+        "RejectRegistrationRequest-Error": "Error rejecting access request for '{{socialId}}'.",
+        "FindPendingRegistrationRequests-Error": "Error finding pending registration requests.",
+        "FindAllUsers-Error": "Error finding registered users.",
+        "CreateUser-Error": "Error creating user.",
+        "ChangeUser-Error": "Error modifying user"
+    },
+
+    "ProtocolService": {
+        "FindAllProtocolsLike-Error": "Error finding protocols with '{{searchKey}}'."
+    },
+
+    "SignInOut": {
+        "SignInTitle": "Sign in with your social Id...",
+        "WatingAuthorizationServer": "Waiting for authentication server...",
+        "SignInWithGoogle": "Continue with Google",
+        "SignInWithFacebook": "Continue with Facebook",
+        "AccessRequest": "Request Access",
+        "SignOut": "Sign out",
+        "AccessButton": "Enter..."
+    },
+
+    "AuhenicationService": {
+        "SignInWithGoogle-Error": "Error accessing con Google: {{description}}",
+        "SignInWithFacebook-Error": "Error accessing con Facebook: {{description}}",
+        "SignOut-Error": "Error closing session: {{description}}"
+    },
+
+    "PaginatorI18n": {
+        "ItemsPerPageLabel": "Items per page:",
+        "NextPageLabel": "Next",
+        "PreviousPageLabel": "Previous",
+        "FirstPageLabel": "First",
+        "LastPageLabel": "Last"
+    },
+
+    "ImageBatchesDataExportDialog": {
+        "Title": "Data export",
+        "FileFormatLabel": "File format",
+        "OutputFileButton": "File path",
+        "ExportButton": "Export",
+        "CancelButton": "Cancel",
+        "DataExportSuccessful": "Data successfully exported!"
+    },
+
+    "UserOptionDialog": {
+        "AcceptLabel": "Ok",
+        "CancelLabel": "Cancel"
+    },
+
+    "RegistrationRequestDialog" : {
+        "Title": "Access Request",
+        "OptionalMessageLabel": "Optional message",
+        "RequestButton": "Send request",
+        "CancelButton": "Cancel",
+        "RequestSuccess": "Your request has been sent!",
+        "ReCaptchaError": "Error reCAPTCHA: {{errorMessage}}"
+    },
+
+    "UserManagement" : {
+        "Title": "Users Management",
+        "UserListTabLabel": "Registered Users",
+        "UserRegistrationRequestListTabLabel": "Registration Requests",
+        "AccessButtonTooltip": "Users"
+    },
+
+    "UserList": {
+        "NameColumn": "Name",
+        "SocialIdColumn": "Email",
+        "IsAdministratorColumn": "Administrator?",
+        "StatusColumn": "Status",
+        "EnableActionLabel": "Enable...",
+        "DisableActionLabel": "Disable...",
+        "AddUserButton": "New User"
+    },
+
+    "UserData": {
+        "Title": "User Data",
+        "FirstNameLabel": "First Name",
+        "FirstNameRequiredMessage": "First name is required...",
+        "LastNameLabel": "Last Name",
+        "LastNameRequiredMessage": "Last name is required...",
+        "EmailLabel": "Email",
+        "EmailInvalidMessage": "Please, enter a valid email address...",
+        "EmailRequiredMessage": "Email is required...",
+        "EmailPlaceholder": "Ej, name@domain",
+        "IsAdministratorLabel": "Administrator",
+        "StatusLabel": "Enabled",
+        "ChangeUserLabel": "Change",
+        "CreateUserLabel": "Create",
+        "CancelLabel": "Cancel",
+        "UserSuccessfullyChanged": "User '{{socialId}}' successfully changed!",
+        "UserSuccessfullyCreated": "User '{{socialId}}' successfully created!"
+    },
+
+    "UserRegistrationRequestList": {
+        "NameColumn": "Name",
+        "SocialIdColumn": "Email",
+        "MessageColumn": "Message",
+        "AcceptRequestLabel": "Accept request...",
+        "RejectRequestLabel": "Reject request...",
+        "RequestSuccessfullyAccepted": "Request successfully accepted!",
+        "RequestSuccessfullyRejected": "Request successfully rejected!"
+    }
+
+
+}

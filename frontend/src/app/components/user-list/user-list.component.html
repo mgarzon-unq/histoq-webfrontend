@@ -1,0 +1,52 @@
+<mat-toolbar>
+  <span class="toolbar-spacer"></span>
+  <button mat-mini-fab
+          (click)="onAddNewUser()" 
+          color="primary"
+          matTooltip="{{'UserList.AddUserButton' | translate}}">
+      <mat-icon>add_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="table-container">
+  <table mat-table [dataSource]="users" matSort>    
+  
+    <!-- Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{'UserList.NameColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{getUserName(element)}} </td>
+    </ng-container>
+  
+    <!-- Social Id -->
+    <ng-container matColumnDef="socialId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{'UserList.SocialIdColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{getUserSocialId(element)}} </td>
+    </ng-container>
+
+    <!-- Is Administrator? -->
+    <ng-container matColumnDef="isAdmin">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{'UserList.IsAdministratorColumn' | translate}}</th>
+        <td mat-cell *matCellDef="let element"> {{getUserIsAdministrator(element)}} </td>
+      </ng-container>
+
+    <!-- Status -->
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{'UserList.StatusColumn' | translate}}</th>
+        <td mat-cell *matCellDef="let element"> {{getUserStatus(element)}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="mat-elevation-z8" ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        class="user-element-row"
+        (click)="onUserSelected(row)"
+        [ngClass]="{hovered: row.hovered}"
+        (mouseover)="row.hovered = true" (mouseout)="row.hovered = false">
+    </tr>
+  </table>  
+</div>
+
+<mat-paginator  class="mat-elevation-z8" 
+                [pageSizeOptions]="[5, 10, 20]" 
+                showFirstLastButtons>
+</mat-paginator>
+

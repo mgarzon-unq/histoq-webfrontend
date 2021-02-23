@@ -1,0 +1,40 @@
+<div mat-dialog-title class="flex-container">
+    <h2>{{'ImageBatchesDataExportDialog.Title' | translate }}</h2>
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon">close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="mat-typography">
+    <div class="column-container">
+        
+        <!-- Export file format selector -->
+        <mat-form-field appearance="fill" >
+          <mat-label>{{ 'ImageBatchesDataExportDialog.FileFormatLabel' | translate }}</mat-label>
+          <mat-select [(ngModel)]="selectedFileFormat" name="fileFormatSelect" >
+            <mat-option *ngFor="let fileFormat of supportedFileFormats" [value]="fileFormat">
+              {{fileFormat.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>   
+    
+    </div>
+</mat-dialog-content>
+
+<br>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button 
+            color="primary"
+            (click)="onExportData()"
+            [mat-dialog-close]="true" 
+            [disabled]="!selectedFileFormat">
+            <mat-icon>outbond</mat-icon>
+            {{ 'ImageBatchesDataExportDialog.ExportButton' | translate }}
+    </button>
+    <button mat-raised-button mat-dialog-close>
+        <mat-icon>close</mat-icon>
+        {{ 'ImageBatchesDataExportDialog.CancelButton' | translate }}
+    </button>    
+</mat-dialog-actions>
+

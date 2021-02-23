@@ -1,0 +1,98 @@
+<mat-toolbar>
+  <span class="toolbar-spacer"></span>
+  <button mat-mini-fab
+          (click)="onAcceptSelectedRequests()" 
+          color="primary"
+          [disabled]="!selection.hasValue()"
+          matTooltip="{{'UserRegistrationRequestList.AcceptRequestLabel' | translate}}">
+    <mat-icon>thumb_up</mat-icon>
+  </button>
+  <span>&nbsp;</span>
+  <button mat-mini-fab
+          (click)="onRejectSelectedRequests()" 
+          color="primary"
+          [disabled]="!selection.hasValue()"
+          matTooltip="{{'UserRegistrationRequestList.RejectRequestLabel' | translate}}">
+    <mat-icon>thumb_down</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+<table mat-table [dataSource]="requests" matSort>
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                        matTooltip="{{'Common.ItemSelectTooltip' | translate}}">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)"
+                        matTooltip="{{'Common.ItemSelectTooltip' | translate}}">
+          </mat-checkbox>
+        </td>
+    </ng-container>
+  
+    <!-- Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{'UserRegistrationRequestList.NameColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{getRequestUserName(element)}} </td>
+    </ng-container>
+  
+    <!-- Social Id -->
+    <ng-container matColumnDef="socialId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{'UserRegistrationRequestList.SocialIdColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{getRequestUserSocialId(element)}} </td>
+    </ng-container>
+
+    <!-- Message -->
+    <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef>{{'UserRegistrationRequestList.MessageColumn' | translate}}</th>
+        <td mat-cell *matCellDef="let element"> {{getRequestMessage(element)}} </td>
+    </ng-container>
+
+    <!-- Actions Menu -->
+    <ng-container matColumnDef="actionsMenu">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button
+                (click)="onActionsMenuButonClick($event,element)"
+                [matMenuTriggerFor]="actionsMenu"
+                matTooltip="{{'Common.ActionsMenuTooltip' | translate}}">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="mat-elevation-z8" ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        class="request-element-row"
+        (click)="onRequestSelected(row)"
+        [ngClass]="{hovered: row.hovered}"
+        (mouseover)="row.hovered = true" (mouseout)="row.hovered = false">
+    </tr>
+</table>
+
+
+
+<mat-paginator  class="mat-elevation-z8"
+                [pageSizeOptions]="[5, 10, 20]" 
+                showFirstLastButtons>
+</mat-paginator>
+
+<mat-menu #actionsMenu="matMenu">
+    <button mat-menu-item (click)="onAcceptRequest()">
+        <mat-icon>thumb_up</mat-icon>
+        <span>{{ 'UserRegistrationRequestList.AcceptRequestLabel' | translate }}</span>
+    </button>
+    <button mat-menu-item (click)="onRejectRequest()">
+      <mat-icon>thumb_down</mat-icon>
+      <span>{{ 'UserRegistrationRequestList.RejectRequestLabel' | translate }}</span>
+    </button>
+</mat-menu>
+

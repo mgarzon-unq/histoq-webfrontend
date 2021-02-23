@@ -1,0 +1,14 @@
+.sign-int-out-container {
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    font-size: small;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+button.mat-menu-item{ outline:none; }

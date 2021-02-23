@@ -1,0 +1,78 @@
+<div class="row-container">
+    <button mat-fab
+            (click)="onRunBatchProcess()" 
+            color="accent"
+            #processButton
+            [disabled]="disableProcessButton()"
+            matTooltip="{{ (hasImages() ? 'ImageList.ReProcessBatchButton' : 'ImageList.ProcessBatchButton') | translate}}">
+        <mat-icon>play_circle_filled</mat-icon>
+    </button>
+    <mat-spinner *ngIf="processing" diameter="35" strokeWidth="10"></mat-spinner>
+</div>
+
+<table mat-table [dataSource]="images" class="mat-elevation-z8" matSort>
+
+    <!-- Id -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageList.IdColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageList.NameColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Measurement Unit -->
+    <ng-container matColumnDef="measurementUnit">
+      <th mat-header-cell *matHeaderCellDef>{{'ImageList.MeasurementUnitColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{getMeasurementUnit(element)}} </td>
+    </ng-container>
+
+    <!-- Measurement Factor -->
+    <ng-container matColumnDef="measurementFactor">
+      <th mat-header-cell *matHeaderCellDef>{{'ImageList.MeasurementFactorColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{element.measurementFactor | number: '1.1-1'}} </td>
+    </ng-container>
+    
+    <!-- Total Area -->
+    <ng-container matColumnDef="totalArea">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageList.TotalAreaColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{getTotalArea(element)}} </td>
+    </ng-container>
+  
+    <!-- Total Tissue Area -->
+    <ng-container matColumnDef="totalTissueArea">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageList.TotalTissueAreaColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{getTotalTissueArea(element)}} </td>
+    </ng-container>
+
+    <!-- Viable Tissue Area -->
+    <ng-container matColumnDef="viableTissueArea">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageList.ViableTissueAreaColumn' | translate}}</th>
+        <td mat-cell *matCellDef="let element"> {{getViableTissueArea(element)}} </td>
+    </ng-container>
+
+    <!-- Necrotic Tissue Area -->
+    <ng-container matColumnDef="necroticTissueArea">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageList.NecroticTissueAreaColumn' | translate}}</th>
+        <td mat-cell *matCellDef="let element"> {{getNecroticTissueArea(element)}} </td>
+    </ng-container>
+
+    <!-- Necrotic Tissue Percentae -->
+    <ng-container matColumnDef="necroticTissuePercentage">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ImageList.NecroticTissuePercentageColumn' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{getNecroticTissuePercentage(element) | number: '1.2-2'}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        class="image-element-row"
+        (click)="onImageSelect(row)"></tr>
+
+</table>
+
+<mat-paginator  [pageSizeOptions]="[5, 10, 20]" 
+                showFirstLastButtons>
+</mat-paginator>
