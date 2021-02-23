@@ -1,4 +1,4 @@
-export const RootApiEndPoint = 'http://histoq-backend.herokuapp.com';
+export const RootApiEndPoint = 'https://histoq-backend.herokuapp.com';
 
 export const environment = {
   production: true,
