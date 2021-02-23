@@ -151,7 +151,7 @@ export function HttpLoaderFactory(http: HttpClient) {
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('2480768368894062'),
+            provider: new FacebookLoginProvider('453294245921829'),
           }/*,
           {
             id: AmazonLoginProvider.PROVIDER_ID,
