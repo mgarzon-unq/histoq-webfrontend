@@ -1,6 +1,6 @@
-<h1><img src="https://github.com/mgarzon-unq/TissueScan-StandAloneWebFrontEnd/blob/main/icon.png" width="80" height="60">&emsp;TissueScan</h1>
+<h1><img src="https://github.com/mgarzon-unq/histoq-webfrontend/blob/main/icon.png" width="80" height="60">&emsp;HistoQ</h1>
 
-TissueScan es un servicio que permite identificar automáticamente las áreas viables y necróticas en imágenes de muestras de tejido tumoral.<br>Es una herramienta complementaria del proyecto [Aluminé](https://github.com/mgarzon-unq/alumine), pero puede ser utilizada en modo "stand alone".
+HistoQ es un servicio que permite identificar automáticamente las áreas viables y necróticas en imágenes de muestras de tejido tumoral.<br>Es una herramienta complementaria del proyecto [Aluminé](https://github.com/mgarzon-unq/alumine), pero puede ser utilizada en modo "stand alone".
 
 
 ### Licencia
@@ -8,4 +8,4 @@ TissueScan es un servicio que permite identificar automáticamente las áreas vi
 
 
 ### Diagrama de Arquitectura
-<img src="https://github.com/mgarzon-unq/TissueScan-StandAloneWebFrontEnd/blob/main/documentacion/TissueScan-Arquitectura.jpg">
+<img src="https://github.com/mgarzon-unq/histoq-webfrontend/blob/main/documentacion/HistoQ-Arquitectura.jpg">
