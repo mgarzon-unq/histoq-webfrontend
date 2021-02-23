@@ -1,4 +1,4 @@
-export const RootApiEndPoint = 'http://alumine.edu:8080/tissue-scan';
+export const RootApiEndPoint = 'http://histoq-backend.herokuapp.com';
 
 export const environment = {
   production: true,
@@ -12,6 +12,6 @@ export const environment = {
   usersApiEndPoint: RootApiEndPoint + '/users'
 };
 
-export const GoogleClientId = 'UNDEFINED.apps.googleusercontent.com';
+export const GoogleClientId = '1093064661917-36og4fq7sve1mh16i9u91rdcp2em32ql.apps.googleusercontent.com';
 
 
