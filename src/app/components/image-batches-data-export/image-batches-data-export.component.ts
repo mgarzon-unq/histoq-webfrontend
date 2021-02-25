@@ -34,7 +34,7 @@ export class ImageBatchesDataExportComponent implements OnInit {
   onExportData() {
     this.imageService.findImageBatchesExportableData(this.data.imageBatchesIds,this.selectedFileFormat).subscribe( response => {
       let blob:any = new Blob([response], { type: this.selectedFileFormat.contentType });
-      fileSaver.saveAs(blob, "TissueScan-Data" + "." + this.selectedFileFormat.extension );
+      fileSaver.saveAs(blob, "HistoQ-Data" + "." + this.selectedFileFormat.extension );
       this.notificationService.showSuccess(this.translate.instant("ImageBatchesDataExportDialog.DataExportSuccessful"));
       this.dialogRef.close();
     });
