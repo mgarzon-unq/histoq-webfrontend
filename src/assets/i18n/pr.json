@@ -18,7 +18,8 @@
         "DeleteImageBatch": "Remover",
         "DeleteImageBatchUserOptionDialogTitle": "Você quer deletar o lote de imagens?",
         "DeleteImageBatchUserOptionDialogMessage": "",
-        "DeleteImageBatchSuccess": "O lote de imagens foi removido!"
+        "DeleteImageBatchSuccess": "O lote de imagens foi removido!",
+        "LoadingMessage": "Carregando lotes de imagens..."
     },
 
     "ImageBatch": {
@@ -72,7 +73,7 @@
     },
 
     "ShowImageDialog": {
-        "ImageLabel": "Imagen '{{imageName}}'",
+        "ImageLabel": "Imagem '{{imageName}}'",
         "ProcessingParametersLabel": "Parâmetros de processamento...",
         "ProcessingParameterViableTissueAreaMinHSVInRangeLabel": "Deteccion de Area de Tejido Viable - Rango HSV Minimo",
         "ProcessingParameterViableTissueAreaMaxHSVInRangeLabel": "Deteccion de Area de Tejido Viable - Rango HSV Maximo",
@@ -81,7 +82,8 @@
         "ProcessingParameterViableTissueAreaMinValueInRangeLabel": "Valor",
         "ProcessingParameterViableTissueAreaMaxHueInRangeLabel": "Color",
         "ProcessingParameterViableTissueAreaMaxSaturationInRangeLabel": "Saturacion",
-        "ProcessingParameterViableTissueAreaMaxValueInRangeLabel": "Valor"
+        "ProcessingParameterViableTissueAreaMaxValueInRangeLabel": "Valor",
+        "LoadingMessage": "Processando imagem..."
     },
 
     "Common": {
@@ -194,7 +196,8 @@
         "StatusColumn": "Estado",
         "EnableActionLabel": "Ativar...",
         "DisableActionLabel": "Desativar...",
-        "AddUserButton": "Novo Usuário"
+        "AddUserButton": "Novo Usuário",
+        "LoadingMessage": "Carregando usuarios..."
     },
 
     "UserData": {
@@ -222,8 +225,9 @@
         "MessageColumn": "Mensagem",
         "AcceptRequestLabel": "Aceitar pedido...",
         "RejectRequestLabel": "Rejeitar pedido...",
-        "RequestSuccessfullyAccepted": "O pedido foi aceito com sucesso!",
-        "RequestSuccessfullyRejected": "O pedido foi rejeitado com sucesso!"
+        "RequestSuccessfullyAccepted": "O pedido foi aceito com sucesso!",     
+        "RequestSuccessfullyRejected": "O pedido foi rejeitado com sucesso!",
+        "LoadingMessage": "Carregando pedidos..."
     }
 
 }

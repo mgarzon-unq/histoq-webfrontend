@@ -13,6 +13,7 @@ import { UserOptionComponent } from '../user-option/user-option.component';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-image-batch-list',
@@ -34,7 +35,8 @@ actionsMenu
               private dialog: MatDialog,
               private translate: TranslateService,
               private notification: NotificationService,
-              private authenticationService: AuthenticationService ) { }
+              private authenticationService: AuthenticationService,
+              private spinner: NgxSpinnerService ) { }
 
   ngOnInit(): void {
     if( this.isLoggedBussinessUserAdmin() )
@@ -45,7 +47,9 @@ actionsMenu
   }
 
   loadImageBatches() {
+    this.spinner.show("imageBatchListSpinner");
     this.imageService.findAllImageBatches().subscribe( imageBatches => {
+      this.spinner.hide("imageBatchListSpinner");
       this.imageBatches.data = imageBatches;
       this.imageBatches.paginator = this.paginator;
       this.imageBatches.sort = this.sort;

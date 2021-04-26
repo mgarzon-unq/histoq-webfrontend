@@ -5,6 +5,8 @@ import { ImageService } from 'src/app/services/image-service/image.service';
 import { ImageFile } from 'src/app/model/image-file';
 import { Image } from 'src/app/model/image';
 import { ImageFileProcessingParameter } from 'src/app/model/image-file-processing-parameter';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 export interface DialogData {
   imageFile: ImageFile;
@@ -31,7 +33,8 @@ export class ShowImageDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ShowImageDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: DialogData,
-              private imageService: ImageService) { }
+              private imageService: ImageService,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.setSourceImageURL();
@@ -85,12 +88,14 @@ export class ShowImageDialogComponent implements OnInit {
   }
 
   setImageURL(url: string) {
+    this.spinner.show("imageSpinner");
     this.imageLoading = true;
     this.imageURL = url;
   }
 
   onImageLoad() {
     this.imageLoading = false;
+    this.spinner.hide("imageSpinner");
   }
 
   getImageURL(): string {

@@ -7,6 +7,7 @@ import { UserService } from 'src/app/services/user-service/user.service';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SelectionModel } from '@angular/cdk/collections';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-registration-request-list',
@@ -25,14 +26,17 @@ export class UserRegistrationRequestListComponent implements OnInit {
 
   constructor(private userService: UserService,
               private notifications: NotificationService,
-              private translate: TranslateService) { }
+              private translate: TranslateService,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.loadRequests();
   }
 
   loadRequests() {
+    this.spinner.show("userRegistrationRequestListSpinner");
     this.userService.findPendingRegistrationRequests().subscribe( requests => {
+      this.spinner.hide("userRegistrationRequestListSpinner");
       this.requests.data = requests;
       this.requests.paginator = this.paginator;
       this.requests.sort = this.sort;

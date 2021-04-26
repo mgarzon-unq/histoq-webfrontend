@@ -59,6 +59,7 @@ import { UserDataComponent } from './components/user-data/user-data.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 // AoT requires an exported function for factories
@@ -123,6 +124,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatAutocompleteModule,
     MatExpansionModule,
     MatTooltipModule, 
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       preventDuplicates: true,

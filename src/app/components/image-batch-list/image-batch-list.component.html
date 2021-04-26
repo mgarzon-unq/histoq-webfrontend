@@ -1,4 +1,4 @@
-<mat-card class="mat-elevation-z8">
+<mat-card class="mat-elevation-z8" >
 
     <p>
         <mat-toolbar class="mat-elevation-z8">
@@ -23,82 +23,98 @@
         </mat-toolbar>
     </p>
   
-    <table mat-table [dataSource]="imageBatches" matSort>
+    <div style="position: relative;">
 
-      <!-- Checkbox Column -->
-      <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef>
-          <mat-checkbox (change)="$event ? masterToggle() : null"
-                        [checked]="selection.hasValue() && isAllSelected()"
-                        [indeterminate]="selection.hasValue() && !isAllSelected()"                        
-                        matTooltip="{{'Common.ItemSelectTooltip' | translate}}">
-          </mat-checkbox>
-        </th>
-        <td mat-cell *matCellDef="let row">
-          <mat-checkbox (click)="$event.stopPropagation()"
-                        (change)="$event ? selection.toggle(row) : null"
-                        [checked]="selection.isSelected(row)"
-                        matTooltip="{{'Common.ItemSelectTooltip' | translate}}">
-          </mat-checkbox>
-        </td>
-      </ng-container>
-    
-      <!-- Id -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{ 'ImageBatchesList.IdColumn' | translate }}</th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
-    
-      <!-- Date -->
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{ 'ImageBatchesList.DateTimeColumn' | translate }}</th>
-        <td mat-cell *matCellDef="let element"> {{getImageBatchDate(element)}} </td>
-      </ng-container>
+      <table mat-table [dataSource]="imageBatches" matSort >
 
-      <!-- User label -->
-      <ng-container *ngIf="isLoggedBussinessUserAdmin()" matColumnDef="user">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{ 'ImageBatchesList.UserColumn' | translate }}</th>
-        <td mat-cell *matCellDef="let element"> {{getUser(element)}} </td>
-      </ng-container>
-    
-      <!-- Fully qualified individual label -->
-      <ng-container matColumnDef="protocol">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{ 'ImageBatchesList.IndividualColumn' | translate }}</th>
-        <td mat-cell *matCellDef="let element"> {{getIndividualLabel(element)}} </td>
-      </ng-container>
-    
-      <!-- File count -->
-      <ng-container matColumnDef="fileCount">
-        <th mat-header-cell *matHeaderCellDef>{{ 'ImageBatchesList.FileCountColumn' | translate }}</th>
-        <td mat-cell *matCellDef="let element"> {{getImageFileCount(element)}} </td>
-      </ng-container>
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()"                        
+                          matTooltip="{{'Common.ItemSelectTooltip' | translate}}">
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)"
+                          matTooltip="{{'Common.ItemSelectTooltip' | translate}}">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+      
+        <!-- Id -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{ 'ImageBatchesList.IdColumn' | translate }}</th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <!-- Date -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{ 'ImageBatchesList.DateTimeColumn' | translate }}</th>
+          <td mat-cell *matCellDef="let element"> {{getImageBatchDate(element)}} </td>
+        </ng-container>
 
-      <!-- Menu column -->
-      <ng-container matColumnDef="actionsMenu" stickyEnd>
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-icon-button
-                  (click)="onActionsMenuButonClick($event,element)"
-                  [matMenuTriggerFor]="actionsMenu"
-                  matTooltip="{{'Common.ActionsMenuTooltip' | translate}}">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="mat-elevation-z8" ></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
-          (click)="onItemSelect(row)"
-          [ngClass]="{hovered: row.hovered, highlighted: selection.isSelected(row)}"
-          (mouseover)="row.hovered = true" (mouseout)="row.hovered = false">
-      </tr>
-    </table>
+        <!-- User label -->
+        <ng-container *ngIf="isLoggedBussinessUserAdmin()" matColumnDef="user">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{ 'ImageBatchesList.UserColumn' | translate }}</th>
+          <td mat-cell *matCellDef="let element"> {{getUser(element)}} </td>
+        </ng-container>
+      
+        <!-- Fully qualified individual label -->
+        <ng-container matColumnDef="protocol">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="sort-arrow">{{ 'ImageBatchesList.IndividualColumn' | translate }}</th>
+          <td mat-cell *matCellDef="let element"> {{getIndividualLabel(element)}} </td>
+        </ng-container>
+      
+        <!-- File count -->
+        <ng-container matColumnDef="fileCount">
+          <th mat-header-cell *matHeaderCellDef>{{ 'ImageBatchesList.FileCountColumn' | translate }}</th>
+          <td mat-cell *matCellDef="let element"> {{getImageFileCount(element)}} </td>
+        </ng-container>
 
-    <mat-paginator  class="mat-elevation-z8" 
-                    [pageSizeOptions]="[10, 20, 30]" 
-                    showFirstLastButtons>
-    </mat-paginator>
-  
+        <!-- Menu column -->
+        <ng-container matColumnDef="actionsMenu" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button
+                    (click)="onActionsMenuButonClick($event,element)"
+                    [matMenuTriggerFor]="actionsMenu"
+                    matTooltip="{{'Common.ActionsMenuTooltip' | translate}}">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="mat-elevation-z8" ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+            (click)="onItemSelect(row)"
+            [ngClass]="{hovered: row.hovered, highlighted: selection.isSelected(row)}"
+            (mouseover)="row.hovered = true" (mouseout)="row.hovered = false">
+        </tr>
+
+      </table>
+      
+      <mat-paginator  class="mat-elevation-z8" 
+                      [pageSizeOptions]="[10, 20, 30]" 
+                      showFirstLastButtons>
+      </mat-paginator>
+    
+      <ngx-spinner
+        name="imageBatchListSpinner"
+        bdColor="rgba(51,51,51,0.8)"
+        size="medium"
+        color="#fff"
+        type="ball-clip-rotate-multiple"
+        [fullScreen]="false"
+        >
+        <!--p style="font-size: 20px; color: white">{{'ImageBatchesList.LoadingMessage' | translate }}</p-->
+      </ngx-spinner>
+
+    </div>
+
   </mat-card>
   
 

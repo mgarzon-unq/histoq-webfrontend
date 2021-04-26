@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserDataComponent } from '../user-data/user-data.component';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-list',
@@ -26,14 +27,17 @@ export class UserListComponent implements OnInit {
               private userService: UserService,
               private dialog: MatDialog,
               private authenticationService: AuthenticationService,
-              private notifications: NotificationService) { }
+              private notifications: NotificationService,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.loadUsers();
   }
 
   loadUsers() {
+    this.spinner.show("userListSpinner");
     this.userService.findAllUsers().subscribe( users => {
+      this.spinner.hide("userListSpinner");
       this.users.data = users;
       this.users.paginator = this.paginator;
       this.users.sort = this.sort;

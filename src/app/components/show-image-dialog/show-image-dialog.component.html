@@ -1,72 +1,86 @@
-<div mat-dialog-title class="flex-container">
-    <h2>{{'ShowImageDialog.ImageLabel' | translate:getImageName() }}</h2>
-    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
-        <mat-icon class="close-icon">close</mat-icon>
-    </button>
-</div>
+<div style="position: relative;">
 
-<mat-dialog-content class="mat-typography">
+    <div mat-dialog-title class="flex-container">
+        <h2>{{'ShowImageDialog.ImageLabel' | translate:getImageName() }}</h2>
+        <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+            <mat-icon class="close-icon">close</mat-icon>
+        </button>
+    </div>
 
-        <mat-accordion *ngIf="data.imageFile">
-        <mat-expansion-panel    [expanded]="isProcessinPreviewMode()"
-                                (opened)="onBeginProcessingPreviewMode()"
-                                (closed)="onEndProcessingPreviewMode()">
-            <mat-expansion-panel-header>
-                <mat-panel-description>              
-                <mat-icon>settings_input_component</mat-icon>
-                <span>&nbsp;{{'ShowImageDialog.ProcessingParametersLabel' | translate }}</span>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+    <mat-dialog-content class="mat-typography">
 
-            <div class="parameters-column-container">
+            <mat-accordion *ngIf="data.imageFile">
+            <mat-expansion-panel    [expanded]="isProcessinPreviewMode()"
+                                    (opened)="onBeginProcessingPreviewMode()"
+                                    (closed)="onEndProcessingPreviewMode()">
+                <mat-expansion-panel-header>
+                    <mat-panel-description>              
+                    <mat-icon>settings_input_component</mat-icon>
+                    <span>&nbsp;{{'ShowImageDialog.ProcessingParametersLabel' | translate }}</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
 
-                <span>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMinHSVInRangeLabel' | translate }}</span>
+                <div class="parameters-column-container">
 
-                <div class="row-container">
-                    <mat-form-field class="parameter-input">
-                        <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMinHueInRangeLabel' | translate }}</mat-label>
-                        <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_minH"
-                            (change)="onProcessingParametersChange()">
-                    </mat-form-field>
-                    <mat-form-field class="parameter-input">
-                        <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMinSaturationInRangeLabel' | translate }}</mat-label>
-                        <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_minS"
-                            (change)="onProcessingParametersChange()">
-                    </mat-form-field>
-                    <mat-form-field class="parameter-input">
-                        <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMinValueInRangeLabel' | translate }}</mat-label>
-                        <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_minV"
-                            (change)="onProcessingParametersChange()">
-                    </mat-form-field>
+                    <span>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMinHSVInRangeLabel' | translate }}</span>
+
+                    <div class="row-container">
+                        <mat-form-field class="parameter-input">
+                            <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMinHueInRangeLabel' | translate }}</mat-label>
+                            <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_minH"
+                                (change)="onProcessingParametersChange()">
+                        </mat-form-field>
+                        <mat-form-field class="parameter-input">
+                            <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMinSaturationInRangeLabel' | translate }}</mat-label>
+                            <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_minS"
+                                (change)="onProcessingParametersChange()">
+                        </mat-form-field>
+                        <mat-form-field class="parameter-input">
+                            <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMinValueInRangeLabel' | translate }}</mat-label>
+                            <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_minV"
+                                (change)="onProcessingParametersChange()">
+                        </mat-form-field>
+                    </div>
+
+                    <span>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMaxHSVInRangeLabel' | translate }}</span>
+
+                    <div class="row-container">
+                        <mat-form-field class="parameter-input">
+                            <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMaxHueInRangeLabel' | translate }}</mat-label>
+                            <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_maxH"
+                                (change)="onProcessingParametersChange()">
+                        </mat-form-field>
+                        <mat-form-field class="parameter-input">
+                            <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMaxSaturationInRangeLabel' | translate }}</mat-label>
+                            <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_maxS"
+                                (change)="onProcessingParametersChange()">
+                        </mat-form-field>
+                        <mat-form-field class="parameter-input">
+                            <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMaxValueInRangeLabel' | translate }}</mat-label>
+                            <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_maxV"
+                                (change)="onProcessingParametersChange()">
+                        </mat-form-field>
+                    </div>
                 </div>
 
-                <span>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMaxHSVInRangeLabel' | translate }}</span>
-
-                <div class="row-container">
-                    <mat-form-field class="parameter-input">
-                        <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMaxHueInRangeLabel' | translate }}</mat-label>
-                        <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_maxH"
-                            (change)="onProcessingParametersChange()">
-                    </mat-form-field>
-                    <mat-form-field class="parameter-input">
-                        <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMaxSaturationInRangeLabel' | translate }}</mat-label>
-                        <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_maxS"
-                            (change)="onProcessingParametersChange()">
-                    </mat-form-field>
-                    <mat-form-field class="parameter-input">
-                        <mat-label>{{'ShowImageDialog.ProcessingParameterViableTissueAreaMaxValueInRangeLabel' | translate }}</mat-label>
-                        <input matInput type="number" min="0" max="255" [(ngModel)]="processingParameter_maxV"
-                            (change)="onProcessingParametersChange()">
-                    </mat-form-field>
-                </div>
+            </mat-expansion-panel>
+            </mat-accordion>
+            
+            <div class="image-container">
+                <img [attr.src]="getImageURL() | secure | async" (load)="onImageLoad()" [hidden]="isImageLoading()">        
             </div>
-
-        </mat-expansion-panel>
-        </mat-accordion>
         
-        <div class="image-container">
-            <img [attr.src]="getImageURL() | secure | async" (load)="onImageLoad()" [hidden]="isImageLoading()">        
-        </div>
+    </mat-dialog-content>
 
-    
-</mat-dialog-content>
+    <ngx-spinner
+        name="imageSpinner"
+        bdColor="rgba(51,51,51,0.8)"
+        size="medium"
+        color="#fff"
+        type="ball-clip-rotate-multiple"
+        [fullScreen]="false"
+        >
+            <!--p style="font-size:small; color: white">{{'ShowImageDialog.LoadingMessage' | translate }}</p-->
+    </ngx-spinner>
+
+</div>

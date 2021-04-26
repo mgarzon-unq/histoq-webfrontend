@@ -18,7 +18,8 @@
         "DeleteImageBatch": "Delete"  ,
         "DeleteImageBatchUserOptionDialogTitle": "Delete image batch?",
         "DeleteImageBatchUserOptionDialogMessage": "",
-        "DeleteImageBatchSuccess": "Image batch successfully deleted!"
+        "DeleteImageBatchSuccess": "Image batch successfully deleted!",
+        "LoadingMessage": "Loading image batches..."
     },
 
     "ImageBatch": {
@@ -83,7 +84,8 @@
         "ProcessingParameterViableTissueAreaMinValueInRangeLabel": "Value",
         "ProcessingParameterViableTissueAreaMaxHueInRangeLabel": "Hue",
         "ProcessingParameterViableTissueAreaMaxSaturationInRangeLabel": "Saturation",
-        "ProcessingParameterViableTissueAreaMaxValueInRangeLabel": "Value"
+        "ProcessingParameterViableTissueAreaMaxValueInRangeLabel": "Value",
+        "LoadingMessage": "Processing image..."
     },
 
     "Common": {
@@ -196,7 +198,8 @@
         "StatusColumn": "Status",
         "EnableActionLabel": "Enable...",
         "DisableActionLabel": "Disable...",
-        "AddUserButton": "New User"
+        "AddUserButton": "New User",
+        "LoadingMessage": "Loading users..."
     },
 
     "UserData": {
@@ -225,7 +228,8 @@
         "AcceptRequestLabel": "Accept request...",
         "RejectRequestLabel": "Reject request...",
         "RequestSuccessfullyAccepted": "Request successfully accepted!",
-        "RequestSuccessfullyRejected": "Request successfully rejected!"
+        "RequestSuccessfullyRejected": "Request successfully rejected!",
+        "LoadingMessage": "Loading requests..."
     }
 
 

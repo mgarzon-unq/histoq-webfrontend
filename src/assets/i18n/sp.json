@@ -18,7 +18,8 @@
         "DeleteImageBatch": "Eliminar",
         "DeleteImageBatchUserOptionDialogTitle": "Desea eliminar el lote de imagenes?",
         "DeleteImageBatchUserOptionDialogMessage": "",
-        "DeleteImageBatchSuccess": "Se ha eliminado el lote de imagenes!"
+        "DeleteImageBatchSuccess": "Se ha eliminado el lote de imagenes!",
+        "LoadingMessage": "Cargando lotes de imágenes..."
     },
 
     "ImageBatch": {
@@ -83,7 +84,8 @@
         "ProcessingParameterViableTissueAreaMinValueInRangeLabel": "Valor",
         "ProcessingParameterViableTissueAreaMaxHueInRangeLabel": "Color",
         "ProcessingParameterViableTissueAreaMaxSaturationInRangeLabel": "Saturacion",
-        "ProcessingParameterViableTissueAreaMaxValueInRangeLabel": "Valor"
+        "ProcessingParameterViableTissueAreaMaxValueInRangeLabel": "Valor",
+        "LoadingMessage": "Procesando imágen..."
     },
 
     "Common": {
@@ -196,7 +198,8 @@
         "StatusColumn": "Estado",
         "EnableActionLabel": "Habilitar...",
         "DisableActionLabel": "Deshabilitar...",
-        "AddUserButton": "Nuevo Usuario"
+        "AddUserButton": "Nuevo Usuario",
+        "LoadingMessage": "Cargando usuarios..."
     },
 
     "UserData": {
@@ -225,7 +228,8 @@
         "AcceptRequestLabel": "Aceptar solicitud...",
         "RejectRequestLabel": "Rechazar solicitud...",
         "RequestSuccessfullyAccepted": "La solicitud se ha aceptado correctamente!",
-        "RequestSuccessfullyRejected": "La solicitud se ha rechazado correctamente!"
+        "RequestSuccessfullyRejected": "La solicitud se ha rechazado correctamente!",
+        "LoadingMessage": "Cargando solicitudes..."
     }
 
 }
