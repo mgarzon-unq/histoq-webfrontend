@@ -9,6 +9,7 @@ import { NotificationService } from '../notification-service/notification.servic
 import { TranslateService } from '@ngx-translate/core';
 import { BaseService } from '../base-service/base.service';
 import { FileFormat } from 'src/app/model/file-format';
+import { ProcessJob } from 'src/app/model/process-job';
 
 @Injectable({
   providedIn: 'root'
@@ -94,7 +95,14 @@ export class ImageService extends BaseService {
                               this.translate.instant('ImageService.CreateImageBatch-Error'));
   }
 
-  processImageBatch(imageBatchId: number): Observable<Image[]> {
+  /*processImageBatch(imageBatchId: number): Observable<Image[]> {
+    const url = this.buildRequestURL(this.api_processImageBatch + imageBatchId);
+    return this.ifErrorNotify(this.http.post<Image[]>(url,null), 
+                              this.translate.instant('ImageService.ProcessImageBatch-Error'),
+                              new Array());
+  }*/
+
+  processImageBatch(imageBatchId: number): Observable<ProcessJob> {
     const url = this.buildRequestURL(this.api_processImageBatch + imageBatchId);
     return this.ifErrorNotify(this.http.post<Image[]>(url,null), 
                               this.translate.instant('ImageService.ProcessImageBatch-Error'),

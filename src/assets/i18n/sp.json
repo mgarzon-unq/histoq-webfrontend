@@ -230,6 +230,10 @@
         "RequestSuccessfullyAccepted": "La solicitud se ha aceptado correctamente!",
         "RequestSuccessfullyRejected": "La solicitud se ha rechazado correctamente!",
         "LoadingMessage": "Cargando solicitudes..."
+    },
+
+    "ProcessJobService": {
+        "FindProcessJobById-Error": "Error solicitando datos del proceso '{{jobId}}'."
     }
 
 }

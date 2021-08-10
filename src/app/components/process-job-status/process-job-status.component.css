@@ -1,0 +1,54 @@
+.close-button {
+    float: right;
+    top:-24px;
+    right:-24px;
+    outline:none;
+}
+
+.flex-container { 
+    display: flex;
+    justify-content: space-between;
+    width: 100%;    
+    font-size: larger; 
+    font-weight: bold;
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;    
+}
+  
+.column-container > * {    
+    width: 100%;
+    height: 100%;
+}
+
+.column-container form {
+}
+  
+.column-container form > * {
+}
+
+.row-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;  
+}
+
+.mat-list {    
+    background-color:#3f51b5;
+    min-height: 150px;
+    max-height: 150px;
+    min-width: 100%;
+    flex-grow: 1;
+    overflow: auto;
+    margin-top: 0%;
+}
+
+.mat-list-item {
+    color: white;    
+    font-size: medium;
+    max-height: 20px;
+}
+

@@ -60,7 +60,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxSpinnerModule } from "ngx-spinner";
-
+import { ProcessJobStatusComponent } from './components/process-job-status/process-job-status.component';
+import { MatListModule } from '@angular/material/list';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -88,7 +89,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UsersManagementComponent,
     UserListComponent,
     UserRegistrationRequestListComponent,
-    UserDataComponent
+    UserDataComponent,
+    ProcessJobStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -124,6 +126,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatAutocompleteModule,
     MatExpansionModule,
     MatTooltipModule, 
+    MatListModule,
     NgxSpinnerModule,
     ToastrModule.forRoot({
       timeOut: 3000,

@@ -8,6 +8,7 @@ import { NotificationService } from 'src/app/services/notification-service/notif
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ProcessJobStatusComponent } from '../process-job-status/process-job-status.component';
 
 @Component({
   selector: 'app-images-list',
@@ -76,12 +77,26 @@ export class ImagesListComponent implements OnInit {
 
   onRunBatchProcess() {
     this.processing = true;
-    this.imageService.processImageBatch(this.imageBatchId).subscribe( images => {
-      this.setImages(images);
-      this.processing = false;
-      this.processFinished.emit();
-      if( images && images.length > 0 )
-        this.notificationService.showSuccess(this.translate.instant('ImageList.NotificationProcessSuccess'));
+    this.imageService.processImageBatch(this.imageBatchId).subscribe( newProcessJob => {
+
+      const dialogRef = this.dialog.open(ProcessJobStatusComponent,
+        { width:'65%',
+          height:'45%',
+          disableClose: true,
+          data: { 
+            processJob: newProcessJob
+          }
+        });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        this.imageService.findAllImagesByImageBatchId(this.imageBatchId).subscribe( images => {
+          this.setImages(images);
+          this.processing = false;
+          this.processFinished.emit();
+          if( result && images && images.length > 0 )
+            this.notificationService.showSuccess(this.translate.instant('ImageList.NotificationProcessSuccess'));
+        });
+      });
     });
   }
 

@@ -13,7 +13,8 @@ export const environment = {
   imagesApiEndPoint: RootApiEndPoint + '/image-batches/images',
   imageApiEndPoint: RootApiEndPoint + '/image-batches/image', 
   imageBatchesDataExportApiEndPoint: RootApiEndPoint + '/image-batches/data-export', 
-  usersApiEndPoint: RootApiEndPoint + '/users'
+  usersApiEndPoint: RootApiEndPoint + '/users',
+  processJobsApiEndPoint: RootApiEndPoint + '/jobs'
 };
 
 export const GoogleClientId = '1093064661917-36og4fq7sve1mh16i9u91rdcp2em32ql.apps.googleusercontent.com';
